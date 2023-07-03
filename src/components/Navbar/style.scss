@@ -1,0 +1,45 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    width: 100%;
+    color: white;
+    .nav-wrapper{
+        width: 100%;
+        // background-color: rgb(255, 255, 255);
+        // box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 25px -22px;
+        .nav-container{
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            .nav-content{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 25px;
+                .nav-left{
+                    color: white
+                }
+                .nav-right{
+                    display: flex;
+                    align-items: center;
+                    gap:20px;
+                    .nav-btn{
+                        width: 70px;
+                        height: 30px;
+                        background-color: #53c28b;
+                        border: none;
+                        outline: none;
+                        border-radius: 6px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

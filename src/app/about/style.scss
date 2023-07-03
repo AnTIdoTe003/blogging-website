@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.about-wrapper{
+    width: 100%;
+    .about-container{
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        .about-content{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            .about-img-wrapper{
+                width: 100%;
+                height: 300px;
+                border-radius: 6px;
+                position: relative;
+                .about-img{
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                    filter: grayscale(100%);
+                    border-radius: 6px;
+                }
+                .about-img-overlay{
+                    position: absolute;
+                    bottom: 10px;
+                    background: rgb(81, 173, 143);
+                    padding: 0 20px;
+                    left: 20px;
+                    border-radius: 6px;
+
+                }
+            }
+            .about-text{
+                width: 100%;
+                display: flex;
+                align-items: flex-start;
+                gap: 5rem;
+                .about-text-left{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: left;
+                    gap: 1rem;
+                    justify-content: center;
+                    text-align: justify;
+                    h1{
+                        padding: 4rem 0;
+                    }
+                }
+                .about-text-right{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: left;
+                    justify-content: center;
+                    gap: 1rem;
+                    text-align: justify;
+                    h1{
+                        padding: 4rem 0;
+                    }
+                    button{
+                        width: 130px;
+                        height: 40px;
+                        border: none;
+                        outline: none;
+                        border-radius: 6px;
+                        background-color: rgb(81, 173, 143);
+                        font-weight: 500;
+                        font-family: Poppins;
+                        color: white;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
