@@ -1,10 +1,15 @@
 'use client'
 import Link from 'next/link'
-import React from 'react'
+import Toggle from "react-toggle"
+import React, {useContext} from 'react'
 import './style.scss'
+import {CiDark, CiLight} from 'react-icons/ci'
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
+import { ThemeContext } from '@/context/ThemeContext'
 type Props = {}
 
 const Navbar = (props: Props) => {
+  const{mode} = useContext(ThemeContext)
   const navLinks =[
     {
       id:1,
@@ -34,12 +39,13 @@ const Navbar = (props: Props) => {
   ]
   return (
     <nav>
-   <div className="nav-wrapper">
+   <div className='nav-wrapper'>
     <div className="nav-container">
       <div className="nav-content">
         {/* Left Logo */}
         <div className='nav-left'>
-          <Link href={'/'}>theEngineerGuy</Link>
+         
+         <Link className='nav-left-link' href={'/'}>theEngineerGuy</Link>
         </div>
         {/* Right Nav Menu */}
         <div className='nav-right'>
@@ -51,6 +57,7 @@ const Navbar = (props: Props) => {
             })
           }
           <button className='nav-btn' onClick={()=>{console.log('Logged Out')}}>Logout</button>
+         <DarkModeToggle/>
         </div>
         
       </div>

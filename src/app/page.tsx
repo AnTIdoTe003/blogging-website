@@ -1,10 +1,14 @@
+'use client'
 import Image from 'next/image'
 import './home.scss'
 import Hero from '../../public/hero.png'
+import { useContext } from 'react'
+import { ThemeContext } from '@/context/ThemeContext'
 export default function Home() {
+  const{mode} = useContext(ThemeContext)
   return (
     <main>
-      <div className="home-wrapper">
+      <div className='home-wrapper'>
         <div className="home-container">
           <div className="home-content">
             <div className="home-left">

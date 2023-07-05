@@ -95,6 +95,20 @@ a {
   text-decoration: none;
 }
 
+.theme{
+  transition: 1s all ease;
+}
+
+.light {
+  background-color: white;
+  color: black;
+}
+
+.dark {
+  background-color: black;
+  color: #bbb;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

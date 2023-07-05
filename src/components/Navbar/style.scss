@@ -23,7 +23,9 @@ nav{
                 align-items: center;
                 padding: 25px;
                 .nav-left{
-                    color: white
+                   .nav-left-link{
+                    color: #bbb;
+                   }
                 }
                 .nav-right{
                     display: flex;
