@@ -14,26 +14,26 @@ interface Post {
 }
 
 const Dashboard: React.FC<Props> = (props) => {
-  const [response, setResponse]  = useState([])
-  // @ts-ignore
-  const fetcher = (...args: any) => fetch(...args).then((res) => res.json());
-  const { data, error, isLoading } = useSWR<any>('https://jsonplaceholder.typicode.com/posts', fetcher);
-  useEffect(()=>{
-    setResponse(data)
-  },[data])
-  const session = useSession()
-  console.log(session)
+  // const [response, setResponse]  = useState([])
+  // // @ts-ignore
+  // const fetcher = (...args: any) => fetch(...args).then((res) => res.json());
+  // const { data, error, isLoading } = useSWR<any>('https://jsonplaceholder.typicode.com/posts', fetcher);
+  // useEffect(()=>{
+  //   setResponse(data)
+  // },[data])
+  // const session = useSession()
+  // console.log(session)
   return (
     <div className="dashboard-wrapper">
       <div className="dashboard-container">
         <div className="dashboard-content">
-          {
+          {/* {
             response?.map((ele:any)=>{
               return(
                 <p key={ele.id}>{ele.title}</p>
               )
             })
-          }
+          } */}
         </div>
       </div>
     </div>
