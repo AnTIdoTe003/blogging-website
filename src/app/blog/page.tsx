@@ -4,7 +4,7 @@ import './style.scss'
 import Link from "next/link";
 type Props = {};
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/posts", {
+  const res = await fetch("/api/posts", {
    cache:"no-store"
   });
   if (!res.ok) {
