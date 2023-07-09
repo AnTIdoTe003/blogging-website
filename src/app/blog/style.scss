@@ -5,12 +5,16 @@
 }
 
 .blog-wrapper{
+    margin-top: 5rem;
+    min-height: 100vh;
     width: 100%;
     .blog-container{
+        height: 100%;
         width: 100%;
         max-width: 1440px;
         margin: 0 auto;
         .blog-container{
+            height: 100%;
             width: 100%;
             
         }
@@ -24,8 +28,16 @@
     margin: 0 auto;
     .blog-text{
         h1{
-            font-size: 72px;
-
+            font-size: 58px;
+        }
+        h4{
+            text-align: justify;
+            width: 70%;
+        }
+    }
+    .blog-image{
+        .blog-img{
+            border-radius: 6px;
         }
     }
 }

@@ -21,17 +21,19 @@ const Blog = async (props: Props) => {
           {
             data.map((ele:any)=>{
               return(
-                <div key={ele.id} className="blog-data-wrapper">
+                <>
+                <Link key={ele.id} href={`/blog/${ele.title}`}>
+                <div  className="blog-data-wrapper">
                   <div className="blog-text">
                     <h1>{ele.title}</h1>
                     <h4>{ele.description}</h4>
                   </div>
                   <div className="blog-image">
-                    <Link href={`/blog/${ele.title}`}>
-                    <Image src={ele.image} alt='' width={500} height={300}/>
-                      </Link> 
+                    <Image src={ele.image} alt='' width={500} height={300} className="blog-img"/>
                   </div>
                 </div>
+                </Link> 
+                </>
               )
             })
           }

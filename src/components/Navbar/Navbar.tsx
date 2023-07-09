@@ -41,7 +41,7 @@ const Navbar = (props: Props) => {
     {
       id:6,
       title:'Dashboard',
-      slug: (session.status === "authenticated") ? 'dashboard' : 'dashboard/register'
+      slug: (session.status === "authenticated") ? 'dashboard' : 'dashboard/login'
     }
   ]
   return (

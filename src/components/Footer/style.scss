@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer-wrapper{
+    height: 25vh;
+    margin-top: 10rem;
+    border-top: 2px solid #bbb;
+    padding-top: 20px;
+    width: 100%;
+    .footer-container{
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        .footer-content{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+}

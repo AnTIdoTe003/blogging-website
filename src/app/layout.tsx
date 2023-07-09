@@ -10,15 +10,16 @@ import { ThemeContext } from "@/context/ThemeContext";
 import { Metadata } from "next";
 import Head from "next/head";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
+import { ToastContainer } from "react-toastify";
 const poppins = Poppins({ weight: ["500", "700"], subsets: ["latin"] });
 
-export const metadata:Metadata = {
+export const metadata: Metadata = {
   title: "theEngineerGuy",
   description: "The best blogging website",
 };
 <Head>
   <title>theEngineerGuy</title>
-</Head>
+</Head>;
 
 export default function RootLayout({
   children,
@@ -30,12 +31,17 @@ export default function RootLayout({
       <body className={poppins.className}>
         <ThemeProvider>
           <AuthProvider>
-        <Navbar/>
-        {children}
-        <Footer/>
+            <ToastContainer
+              position="bottom-right"
+              closeOnClick
+              autoClose={2000}
+            />
+            <Navbar />
+            {children}
+            <Footer />
           </AuthProvider>
         </ThemeProvider>
-        </body>
+      </body>
     </html>
   );
 }
