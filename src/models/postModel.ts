@@ -21,7 +21,7 @@ if (!mongoose.models.Post) {
             type: String,
             required: true,
           },
-          username: {
+          name: {
             type: String,
             required: true,
           },

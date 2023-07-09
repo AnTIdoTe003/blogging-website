@@ -1,20 +1,18 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,regular,italic,700,700italic);
 @import url(https://fonts.googleapis.com/css?family=Kanit:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-.register-wrapper{
+.login-wrapper{
     width: 100%;
-    .register-container{
+    .login-container{
         width: 100%;
         max-width: 1440px;
         margin: 0 auto;
-        .register-content{
+        .login-content{
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -22,6 +20,24 @@
             align-items: center;
             height: 100vh;
             gap: 2rem;
+            .google-btn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                width: 230px;
+                height: 40px;
+                border: none;
+                outline: none;
+                border-radius: 4px;
+                background-color: rgba(81, 173, 142, 0.274);
+                font-weight: 500;
+                font-family: 'Kanit';
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                align-self: center;
+              }
             form{
                 display: flex;
                 flex-direction: column;
@@ -44,32 +60,18 @@
                   }
                   button{
                     width: 130px;
-                    height: 40px;
-                    border: none;
-                    outline: none;
-                    border-radius: 4px;
-                    background-color: rgb(81, 173, 143);
-                    font-weight: 500;
-                    font-family: 'Kanit';
-                    color: white;
-                    font-size: 16px;
-                    cursor: pointer;
-                    align-self: center;
+                height: 40px;
+                border: none;
+                outline: none;
+                border-radius: 4px;
+                background-color: rgb(81, 173, 143);
+                font-weight: 500;
+                font-family: 'Kanit';
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+                align-self: center;
                   }
-            }
-            button{
-              width: 130px;
-              height: 40px;
-              border: none;
-              outline: none;
-              border-radius: 4px;
-              background-color: rgb(81, 173, 143);
-              font-weight: 500;
-              font-family: 'Kanit';
-              color: white;
-              font-size: 16px;
-              cursor: pointer;
-              align-self: center;
             }
         }
     }

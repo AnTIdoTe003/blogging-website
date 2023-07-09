@@ -1,15 +1,70 @@
-'use client'
-import { signIn } from 'next-auth/react'
-import React from 'react'
+"use client";
+import React, { useState } from "react";
+import "./style.scss";
+import { FcGoogle } from "react-icons/fc";
+import { getProviders, signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
-type Props = {}
+type Props = {};
 
-const page = (props: Props) => {
+const Login = (props: Props) => {
+  const [formData, setFormData] = useState<any>({
+    email: "",
+    password: "",
+  });
+  const session = useSession();
+  const router = useRouter();
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    const password = e.target[1].value;
+    signIn("credentials", {
+      email,
+      password,
+    });
+  };
+  if (session.status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  if (session.status === "authenticated") {
+    router?.push("/dashboard");
+  }
+
+
   return (
-    <div>
-      <button onClick={()=>signIn("google")}>Login with google</button>
+    <div className="login-wrapper">
+      <div className="login-container">
+        <div className="login-content">
+          <form className="form" onSubmit={handleSubmit}>
+            <input
+              onChange={(e) => {
+                setFormData({ ...formData, email: e.target.value });
+              }}
+              type="email"
+              placeholder="Email"
+              required
+            />
+            <input
+              onChange={(e) => {
+                setFormData({ ...formData, password: e.target.value });
+              }}
+              type="password"
+              placeholder="Password"
+              required
+            />
+            <button type="submit">Submit</button>
+          </form>
+          <button onClick={() => {
+          signIn("google");
+        }} className="google-btn">
+            <FcGoogle /> Login with Google
+          </button>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default Login;

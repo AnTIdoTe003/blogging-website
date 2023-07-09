@@ -6,9 +6,11 @@ import './style.scss'
 import {CiDark, CiLight} from 'react-icons/ci'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 import { ThemeContext } from '@/context/ThemeContext'
+import { signOut, useSession } from "next-auth/react";
 type Props = {}
 
 const Navbar = (props: Props) => {
+  const session = useSession()
   const{mode} = useContext(ThemeContext)
   const navLinks =[
     {
@@ -35,6 +37,11 @@ const Navbar = (props: Props) => {
       id:5,
       title:'Contact',
       slug:'/contact'
+    },
+    {
+      id:6,
+      title:'Dashboard',
+      slug: (session.status === "authenticated") ? 'dashboard' : 'dashboard/register'
     }
   ]
   return (
@@ -56,7 +63,19 @@ const Navbar = (props: Props) => {
               )
             })
           }
-          <button className='nav-btn' onClick={()=>{console.log('Logged Out')}}>Logout</button>
+          
+          {session.status === "authenticated" ? (
+            // @ts-ignore
+          <button className='nav-btn' onClick={signOut}>
+            Logout
+          </button>
+        ):
+        <Link href={'/dashboard/login'}>
+        <button className='nav-btn' >
+        Login
+      </button>
+        </Link>
+      }
          <DarkModeToggle/>
         </div>
         

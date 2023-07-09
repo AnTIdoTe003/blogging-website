@@ -1,29 +1,24 @@
 import userModel from "@/models/userModel";
 import connectDb from "@/utils/db";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
+import { NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
-
-export const POST = async (request: NextRequest) => {
-  const { username, email, password } = await request.json();
-
-  await connectDb();
-
-  const hashedPassword = await bcrypt.hash(password, 10);
-
-  const newUser = new userModel({
-    username,
-    email,
-    password: hashedPassword,
-  });
-
-  try {
-    await newUser.save();
-    return new NextResponse("User has been created", {
-      status: 201,
-    });
-  } catch (err: any) {
-    return new NextResponse(err.message, {
-      status: 500,
-    });
+export const POST = async(
+  req: NextRequest,
+  res: NextApiResponse
+) =>{
+    try {
+      await connectDb();
+      const { name, email, password }:any = await req.json();
+      const existUser = await userModel.findOne({email: email});
+      if(existUser) {
+        return new NextResponse("User already exists",{status:202})
+      }
+      const hashedPassword = await bcrypt.hash(password, 10)  
+      const newUser = await userModel.create({name, email, password:hashedPassword});
+     return new NextResponse(newUser,{status:200})
+    } catch (error: any) {
+      return new NextResponse(error, {status:500})
+    }
   }
-};
+
