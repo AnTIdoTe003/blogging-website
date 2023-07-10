@@ -247,7 +247,9 @@ const Dashboard = () => {
           <ToastContainer />
         </div>
       ) : (
-        handleLoginStatus()
+       useEffect(()=>{
+        router.push('/dashboard/login')
+       })
       )}
     </>
   );
