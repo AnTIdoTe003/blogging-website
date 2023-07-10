@@ -84,6 +84,11 @@ const Dashboard = () => {
       borderRadius: "10px",
     },
   };
+
+  const handleLoginStatus=()=>{
+    router.push('/dashboard/login')
+  }
+
   return (
     <>
       {session.status === "authenticated" ? (
@@ -242,9 +247,7 @@ const Dashboard = () => {
           <ToastContainer />
         </div>
       ) : (
-        useEffect(()=>{
-          router.push('/dashboard/login')
-        })
+        handleLoginStatus()
       )}
     </>
   );

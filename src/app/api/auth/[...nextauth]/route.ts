@@ -15,11 +15,11 @@ const handler = NextAuth({
        try {
          await connectDb();
          const existUser = await userModel.findOne({ email: credentials.email });
-         console.log(existUser);
-         console.log(credentials);
+        //  console.log(existUser);
+        //  console.log(credentials);
          if (existUser) {
            const isPasswordCorrect = await bcrypt.compare(credentials.password, existUser.password);
-           console.log(isPasswordCorrect);
+          //  console.log(isPasswordCorrect);
            if (!isPasswordCorrect) {
              throw new Error("Please check your password");
            } else {
