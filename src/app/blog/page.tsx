@@ -1,19 +1,24 @@
+'use client'
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './style.scss'
 import Link from "next/link";
+import axios from "axios";
 type Props = {};
-async function getData() {
-  const res = await fetch("/api/posts", {
-   cache:"no-store"
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch post data");
-  }
-  return res.json();
-}
-const Blog = async (props: Props) => {
-  const data = await getData();
+const Blog =  (props: Props) => {
+  const [data, setData]= useState([])
+  useEffect(()=>{
+      const getPosts = async()=>{
+        try{
+            const res = await axios.get('/api/posts')
+            setData(res.data)
+        }catch(error){
+          console.log(error)
+        }
+      }
+      getPosts()
+  },[])
   return (
     <div className="blog-wrapper">
       <div className="blog-container">
