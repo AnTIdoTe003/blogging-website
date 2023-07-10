@@ -8,7 +8,7 @@ import Image from "next/image";
 import Modal from "react-modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 type Props = {};
 
 interface Post {
@@ -45,7 +45,6 @@ const Dashboard = () => {
   const deletePost = async (id: any) => {
     const res = await axios.delete(`/api/userPosts/${id}`);
     if (res.status === 200) {
-      // window.location.reload();
     }
   };
 
@@ -53,7 +52,6 @@ const Dashboard = () => {
     const res = await axios.put(`/api/userPosts/${id}`, JSON.stringify(formData))
     if (res.status === 200) {
       toast.success("Updated Post Successfully");
-      // window.location.reload();
     } else {
       toast.error("Something Went Wrong");
     }
@@ -63,7 +61,6 @@ const Dashboard = () => {
     const res = await axios.post("/api/userPosts", JSON.stringify(formData));
     if (res.status === 200) {
       toast.success("Created Post Successfully");
-      // window.location.reload();
     } else {
       toast.error("Something Went Wrong");
     }
