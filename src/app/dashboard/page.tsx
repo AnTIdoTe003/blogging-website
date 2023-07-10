@@ -8,7 +8,7 @@ import Image from "next/image";
 import Modal from "react-modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 type Props = {};
 
 interface Post {
@@ -19,7 +19,7 @@ interface Post {
 }
 
 const Dashboard = () => {
-  // const router = useRouter();
+  const router = useRouter();
   const session = useSession();
   const userName = session.data?.user?.name;
   const [formData, setFormData] = useState({
@@ -241,7 +241,9 @@ const Dashboard = () => {
           <ToastContainer />
         </div>
       ) : (
-        window.location.replace('/dashboard/login')
+        useEffect(()=>{
+          router.push('/dashboard/login')
+        })
       )}
     </>
   );
