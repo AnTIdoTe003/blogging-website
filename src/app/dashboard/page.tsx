@@ -8,7 +8,7 @@ import Image from "next/image";
 import Modal from "react-modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 type Props = {};
 
 interface Post {
