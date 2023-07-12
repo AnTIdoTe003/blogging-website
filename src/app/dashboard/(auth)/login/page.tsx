@@ -4,6 +4,7 @@ import "./style.scss";
 import { FcGoogle } from "react-icons/fc";
 import { getProviders, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Props = {};
 
@@ -32,7 +33,6 @@ const Login = (props: Props) => {
     router?.push("/dashboard");
   }
 
-
   return (
     <div className="login-wrapper">
       <div className="login-container">
@@ -56,11 +56,17 @@ const Login = (props: Props) => {
             />
             <button type="submit">Submit</button>
           </form>
-          <button onClick={() => {
-          signIn("google");
-        }} className="google-btn">
+          <button
+            onClick={() => {
+              signIn("google");
+            }}
+            className="google-btn"
+          >
             <FcGoogle /> Login with Google
           </button>
+          <Link href={"/dashboard/register"}>
+            <h4>Don &#39; t have an acount? Register here</h4>
+          </Link>
         </div>
       </div>
     </div>

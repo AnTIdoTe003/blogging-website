@@ -19,6 +19,11 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+            @media screen and (max-width:768px) {
+                padding: 0 1.25rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     }
 }

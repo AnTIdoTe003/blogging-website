@@ -16,21 +16,40 @@ main {
         display: flex;
         align-items: center;
         gap: 100px;
+        @media screen and (max-width:768px) {
+          justify-content:center;
+          align-items: center;
+          flex-direction: column-reverse;
+          gap: 2rem;
+        }
         .home-left {
           display: flex;
           flex-direction: column;
           gap: 2rem;
+          @media screen and (max-width:768px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
           h1{
             font-size: 72px;
             background:linear-gradient(to bottom, #194c33, #bbb);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            @media screen and (max-width:768px) {
+              font-size: 28px;
+              text-align: center;
+            }
           }
           p {
             font-size: 24px;
             font-weight: 300;
-            width: 500px;
+            @media screen and (max-width:768px) {
+              font-size: 18px;
+              text-align: center;
+            }
           }
           .home-btn {
             button {
@@ -49,6 +68,10 @@ main {
         .home-right {
           .home-right-img {
             animation: hero-anim 2s infinite  alternate;
+            @media screen and (max-width:768px) {
+              width: 250px;
+              height: 250px;
+            }
             @keyframes hero-anim {
               0% {
                 transform: translateY(0px);
