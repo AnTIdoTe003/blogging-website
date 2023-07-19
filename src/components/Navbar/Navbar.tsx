@@ -1,17 +1,19 @@
 'use client'
 import Link from 'next/link'
 import Toggle from "react-toggle"
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import './style.scss'
 import {CiDark, CiLight} from 'react-icons/ci'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 import { ThemeContext } from '@/context/ThemeContext'
 import { signOut, useSession } from "next-auth/react";
+import {BsFillMenuButtonFill} from 'react-icons/bs'
 type Props = {}
 
 const Navbar = (props: Props) => {
   const session = useSession()
   const{mode} = useContext(ThemeContext)
+  const [trigger, setTrigger ] = useState(false)
   const navLinks =[
     {
       id:1,
@@ -78,7 +80,28 @@ const Navbar = (props: Props) => {
       }
          <DarkModeToggle/>
         </div>
-        
+        {/* Nav-Right-Mobile */}
+        <div className='nav-right-mobile'>
+          <BsFillMenuButtonFill onClick={()=>setTrigger(!trigger)} cursor={'pointer'} fontSize={'24px'}/>
+          {
+            trigger? (
+              <div className='nav-right-mobile-content'>
+                <div className='nav-right-mobile-list'>
+                  {
+                    navLinks.map((ele)=>{
+                      return(
+                        <div key={ele.id}>
+                          <Link href={ele.slug}>{ele.title}</Link>
+                        </div>
+                      )
+                    })
+                  }
+                   <DarkModeToggle/>
+                </div>
+              </div>
+            ) : null
+          }
+        </div>
       </div>
     </div>
    </div>

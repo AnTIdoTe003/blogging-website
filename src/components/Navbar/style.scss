@@ -28,6 +28,9 @@ nav{
                     display: flex;
                     align-items: center;
                     gap:20px;
+                    @media screen and (max-width:768px) {
+                        display: none;
+                    }
                     .nav-btn{
                         width: 70px;
                         height: 30px;
@@ -36,6 +39,33 @@ nav{
                         outline: none;
                         border-radius: 6px;
                         cursor: pointer;
+                    }
+                }
+                .nav-right-mobile{
+                    display: none;
+                    position: relative;
+                    @media screen and (max-width:768px) {
+                        position: relative;
+                        display: flex;
+                    }
+                    .nav-right-mobile-content{
+                        @media screen and (max-width:768px) {
+                            position: absolute;
+                            top: 20px;
+                            right: 20px;
+                            z-index: 100;
+                            color: black;
+                            background-color:white;
+                            padding: 20px;
+                            border-radius: 10px;
+                        }
+                        .nav-right-mobile-list{
+                            @media screen and (max-width:768px) {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.5rem;
+                            }
+                        }
                     }
                 }
             }
